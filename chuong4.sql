@@ -60,12 +60,14 @@ join mark on subjects.sub_id = mark.sub_id
 where mark = (select max(mark) from mark);
 
 
-select student.student_id,student.student_name ,avg(mark.mark)
-from student 
-join mark
-on student.student_id = mark.student_id
-group by student.student_id
-order by avg(mark.mark) desc;
+SELECT 
+    student.student_id, student.student_name, AVG(mark.mark)
+FROM
+    student
+        JOIN
+    mark ON student.student_id = mark.student_id
+GROUP BY student.student_id
+ORDER BY AVG(mark.mark) DESC;
 
 
 -- group by sb.sub_id
